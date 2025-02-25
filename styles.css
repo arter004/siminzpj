@@ -1,0 +1,596 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #f5f5f5;
+    --accent-color: #e74c3c;
+    --text-color: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* 导航栏样式 */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brand-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--accent-color);
+}
+
+.brand-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.brand-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-links a {
+    margin-left: 2rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s;
+}
+
+/* 轮播区样式 */
+.hero {
+    height: 100vh;
+    position: relative;
+}
+
+.carousel {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    height: 100%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-content {
+    flex: 1;
+    max-width: 40%;
+    color: var(--primary-color);
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-content.left {
+    margin-right: auto;
+}
+
+.carousel-content.right {
+    margin-left: auto;
+}
+
+.carousel-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #333333;
+    text-shadow: none;
+}
+
+.carousel-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    color: #666666;
+    text-shadow: none;
+}
+
+.view-project {
+    padding: 0.8rem 2rem;
+    background: var(--accent-color);
+    border: none;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.view-project:hover {
+    background: white;
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.carousel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.image-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.carousel-item.active .carousel-image img {
+    transform: scale(1.1);
+}
+
+/* 自我介绍区样式 */
+.about {
+    padding: 5rem 2rem;
+    text-align: center;
+    background: var(--secondary-color);
+}
+
+.about-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.about-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bio {
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: left;
+}
+
+.bio h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.bio-intro {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: #666;
+    text-align: center;
+}
+
+.timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: var(--accent-color);
+    opacity: 0.3;
+}
+
+.timeline-item {
+    margin-bottom: 2rem;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 8px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent-color);
+}
+
+.year {
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-right: 1rem;
+}
+
+.timeline-item p {
+    margin: 0.5rem 0;
+    color: #666;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 1rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .carousel-item {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .carousel-content {
+        max-width: 90%;
+        margin: auto;
+        text-align: center;
+    }
+
+    .carousel-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .carousel-content p {
+        font-size: 1rem;
+    }
+
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        padding-left: 3rem;
+    }
+    
+    .timeline-item::before {
+        left: 14px;
+    }
+}
+
+/* 添加进度条样式 */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--accent-color);
+    z-index: 1001;
+    transition: width 0.1s;
+}
+
+/* 增强技能标签云样式 */
+.skills-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+.skill-tag {
+    padding: 0.5rem 1rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: default;
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.skill-tag:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    background: var(--accent-color);
+    color: white;
+}
+
+/* 轮播图增强样式 */
+.carousel-nav button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.2);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.carousel-nav button:hover {
+    background: rgba(255,255,255,0.4);
+}
+
+.prev-btn { left: 20px; }
+.next-btn { right: 20px; }
+
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+/* 动画关键帧 */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 添加淡入动画类 */
+.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.carousel-content.dark-text h2,
+.carousel-content.dark-text p {
+    color: #000000;
+}
+
+/* 作品展示区样式 */
+.works-section {
+    padding: 5rem 2rem;
+    background: #fff;
+}
+
+.works-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.work-item {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: visible;
+    cursor: pointer;
+}
+
+.work-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.work-item:hover img {
+    transform: scale(2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    position: relative;
+}
+
+/* 响应式调整 */
+@media (max-width: 1200px) {
+    .works-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .works-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 社交媒体区样式 */
+.social-footer {
+    padding: 2rem;
+    background: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-icon {
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: var(--accent-color);
+}
+
+/* 视频展示区样式 */
+.video-section {
+    padding: 5rem 2rem;
+    background: var(--secondary-color);
+}
+
+.video-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.video-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.video-wrapper {
+    flex: 2;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.video-wrapper video {
+    width: 100%;
+    display: block;
+    border-radius: 15px;
+}
+
+.video-description {
+    flex: 1;
+    padding: 2rem;
+}
+
+.video-description h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.video-description p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+}
+
+/* 视频区域响应式设计 */
+@media (max-width: 992px) {
+    .video-container {
+        flex-direction: column;
+    }
+
+    .video-description {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-section {
+        padding: 3rem 1rem;
+    }
+
+    .video-section h2 {
+        font-size: 2rem;
+    }
+
+    .video-description h3 {
+        font-size: 1.5rem;
+    }
+} 
